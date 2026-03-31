@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+import random
 
 app = Flask(__name__)
 
@@ -22,7 +23,7 @@ def handle_login():
 
 @app.route('/dashboard')
 def dashboard():
-    status = "Normal Traffic ✅"
+    status = random.choice(["Normal Traffic ✅", "Suspicious Activity ⚠️"])
     return render_template("dashboard.html", status=status)
 
 if __name__ == '__main__':

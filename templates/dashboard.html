@@ -2,10 +2,44 @@
 <html>
 <head>
     <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        .card {
+            margin: 100px auto;
+            padding: 30px;
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        .status-normal {
+            color: green;
+            font-weight: bold;
+        }
+
+        .status-alert {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h2>Dashboard</h2>
-    <h3>Status: {{ status }}</h3>
-    <p>CI/CD Pipeline Active 🚀</p>
+    <div class="card">
+        <h2>📊 Dashboard</h2>
+
+        {% if "Normal" in status %}
+            <p class="status-normal">{{ status }}</p>
+        {% else %}
+            <p class="status-alert">{{ status }}</p>
+        {% endif %}
+
+        <p>🚀 CI/CD Pipeline Active</p>
+    </div>
 </body>
 </html>
